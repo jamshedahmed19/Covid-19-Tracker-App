@@ -22,6 +22,10 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
     - name: Install NodeJS
       uses: actions/setup-node@v2-beta
       with: 
@@ -35,4 +39,4 @@ jobs:
     - name: Making Build folder
       run: yarn build
     - name: React App Deploy
-      run: surge ./build hammad-covid-19-tracker.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
+      run: surge ./build http://hammad-covid-19-tracker.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
